@@ -1,5 +1,6 @@
 # Openshot
-## tqdm
+## tqdm (frame by frame)  
+The code like this, If you process frame by frmae while writing.  
 ```python
 import openshot
 from tqdm import tqdm
@@ -17,7 +18,6 @@ if __name__ == "__main__":
   writer.SetVideoOptions(True, "libx264", openshot.Fraction(30000, 1001), 1280, 720,openshot.Fraction(1, 1), False    , False, 10000000)
   timeline.Open()
   writer.Open()
-  #writer.WriteFrame(timeline, 1, timeline.GetMaxFrame())
   for i in tqdm(range(1, timeline.GetMaxFrame()+1), total=timeline.GetMaxFrame(), unit='frame'):
     writer.WriteFrame(timeline.GetFrame(i))
   timeline.Close()
