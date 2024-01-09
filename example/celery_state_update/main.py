@@ -1,10 +1,10 @@
-root@choozmo3060:~/AIGV_examples/celery# cat status_test.py
+import sys
 from status_test.tasks import export_video
 from time import sleep
 from tqdm import tqdm
 
 if __name__ == "__main__":
-        res = export_video.delay('angela.mp4')
+        res = export_video.delay(sys.args[1])
         p = 0
         while(True):
                 state = res.state
